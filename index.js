@@ -22,6 +22,7 @@ function addEmployee() {
     }
     else initialQuestions(answer.type);
   });
+}
 
   // Function for questions applicable to anybody.
 function initialQuestions(employeeRole) {
@@ -53,6 +54,7 @@ inquirer
         internQs(answers);
       }
      });
+    }
 
 function engineerQs(engineer) {
   inquirer.prompt([
@@ -93,19 +95,24 @@ function internQs(intern) {
       type: "input",
       name: "internSchool",
       message: "Where does the intern attend school?",
-    }
+    },
   ]).then((answer) => {
     employeeRoster.push(
     new Intern(intern.name, intern.id, intern.email, answer.internSchool),
-  );
-},
+    );
+    console.log(`${intern.name} has been added to the database.`);
+    addEmployee();
+  });
+}
+
 
 addEmployee();
 
-function generatePage() {
-  console.log("File written.");
-  fs.writeFileSync(
-    path.join(path.resolve(__dirname, "dist"), "team.html"),
-    pageTemplate(teamArray),
-    "utf-8"
-  )};
+// function generatePage() {
+//   console.log("File written.");
+//   fs.writeFileSync(
+//     path.join(path.resolve(__dirname, "dist"), "team.html"),
+//     pageTemplate(teamArray),
+//     "utf-8"}
+
+
