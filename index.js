@@ -1,10 +1,9 @@
 const inquirer = require("inquirer");
 const { template } = require("./src/template");
-const path = require("path");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
-const Employee = require("./lib/Employee");
+
 
 // function to add a new employee to the team roster.
 function addEmployee() {
@@ -59,6 +58,14 @@ function engineerQs(engineer) {
         type: "input",
         name: "engineerGitHub",
         message: "What is the engineer's GitHub username?",
+        validate: (githubName) => {
+          if (githubName) {
+            return true;
+          } else {
+            console.log("Please enter your engineer's github username");
+            return false;
+          }
+        },
       },
     ])
     .then((answer) => {
@@ -113,11 +120,4 @@ function internQs(intern) {
 
 addEmployee();
 
-function generatePage() {
-  console.log("File has been written.");
-  fs.writeFileSync(
-    path.join(path.resolve(__dirname, "dist"), "teamroster.html"),
-    pageTemplate(teamArray),
-    "utf-8"
-  );
-}
+

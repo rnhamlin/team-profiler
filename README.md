@@ -2,6 +2,8 @@
 
 ## Description
 
+Reply to prompts to keep track of your company's team!
+
 ## Instructions
 
 Clone or download the repo.
@@ -17,4 +19,8 @@ Clone or download the repo.
 
 ## Screenshot
 
+![Screenshot](team-pic.png)
+
 ## Demonstration Video(s)
+
+https://watch.screencastify.com/v/a0r6MT1dQBABPXcMRcFz
